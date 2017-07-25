@@ -38,6 +38,7 @@ $ (document).ready( function(){
 	}
 	function placer() {
 		$("questionBox").html("questions[questionNumber]");
+		console.log(questionNumber);
 	}
 	placer();
 	run();
