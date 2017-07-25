@@ -2,10 +2,16 @@ $ (document).ready( function(){
 	var choicesMemory = [];
 	var timeCounter = 30;
 	var intervalId;
-	$("#restart").on("click", stop);
+//	$("#restart").on("click", stop);
+
+	$('#options input').on('change', function() {
+   var choice = $('input[name=radioName]:checked','#options').val();
+	choicesMemory.push(choice);
+	restart();
+	});
 
 	function run() {
-		intervalId - setInterval(countDown, 1000);
+		intervalId = setInterval(countDown, 1000);
 	}
 
 	function countDown() {
@@ -16,13 +22,11 @@ $ (document).ready( function(){
 			$("#messageBox").html("Time Up!");
 		}
 	}
-	function stop() {
+	function restart() {
 		clearInterval(intervalId);
+		timeCounter = 30;
+		$("#timer").html(timeCounter);
+		run();
 	}
-	$('#options input').on('change', function() {
-   var choice = $('input[name=radioName]:checked','#options').val();
-	choicesMemory.push(choice);
-	console.log(choicesMemory);
-});
 	run();
 });
