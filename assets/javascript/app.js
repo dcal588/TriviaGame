@@ -49,7 +49,7 @@ $ (document).ready( function(){
 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
 		var wrongThreePosition = (((fakeAnswerPosition+3) % fakeAnswerPosition)+1);
-		var answerPosition = 10-(wrongOnePosition+wrongTwoPosition+wrongThreePosition)
+		answerPosition = 10-(wrongOnePosition+wrongTwoPosition+wrongThreePosition)
 		
 		$("#questionBox").html(questions[questionNumber]);
 		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
