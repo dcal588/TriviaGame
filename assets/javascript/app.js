@@ -37,7 +37,7 @@ $ (document).ready( function(){
 		run();
 	}
 	function placer() {
-		$("questionBox").html("questions[questionNumber]");
+		$("questionBox").html(questions[questionNumber]);
 		console.log(questionNumber);
 	}
 	placer();
