@@ -39,9 +39,9 @@ $ (document).ready( function(){
 
 	function placer() {
 		var answerPosition = Math.floor(Math.random() * 4) + 1
-		var wrongOnePosition = ((answerPosition+1) % answerPosition)
-		var wrongTwoPosition = ((answerPosition+2) % answerPosition)
-		var wrongThreePosition = ((answerPosition+3) % answerPosition)
+		var wrongOnePosition = if(((answerPosition+1) % answerPosition)!===0 {((answerPosition+1) % answerPosition)}else {4};
+		var wrongTwoPosition = if(((answerPosition+2) % answerPosition)!===0 {((answerPosition+2) % answerPosition)}else {4};
+		var wrongThreePosition = if(((answerPosition+2) % answerPosition)!===0 {((answerPosition+2) % answerPosition)}else {4};
 		
 		$("#questionBox").html(questions[questionNumber]);
 		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
