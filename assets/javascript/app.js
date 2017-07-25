@@ -5,6 +5,10 @@ $ (document).ready( function(){
 	var choicesMemory = [];
 	var timeCounter = 30;
 	var intervalId;
+	var questionNumber = 0;
+	var numberRight = 0;
+	var numberWrong = 0;
+	
 //	$("#restart").on("click", stop);
 
 	$('#options input').on('change', function() {
@@ -29,7 +33,12 @@ $ (document).ready( function(){
 		clearInterval(intervalId);
 		timeCounter = 30;
 		$("#timer").html(timeCounter);
+		placer();
 		run();
 	}
+	function placer() {
+		$("questionBox").html("questions[questionNumber]");
+	}
+	placer();
 	run();
 });
