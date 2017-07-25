@@ -57,6 +57,7 @@ $ (document).ready( function(){
 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 	}
+	console.log(numberRight);
 	placer();
 	run();
 });
