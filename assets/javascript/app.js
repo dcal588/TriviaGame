@@ -46,6 +46,8 @@ $ (document).ready( function(){
 		$("#questionBox").html(questions[questionNumber]);
 		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
 		$("#choice"+ wrongOnePosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
+		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
+		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
 
 	}
 	placer();
