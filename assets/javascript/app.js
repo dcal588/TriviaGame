@@ -44,8 +44,9 @@ $ (document).ready( function(){
 		var wrongThreePosition = ((answerPosition+3) % answerPosition)
 		
 		$("#questionBox").html(questions[questionNumber]);
-		$("#questionBox").html(questions[questionNumber]);
-		console.log(questionNumber);
+		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
+		$("#choice"+ wrongOnePosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
+
 	}
 	placer();
 	run();
