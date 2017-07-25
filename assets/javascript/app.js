@@ -51,6 +51,11 @@ $ (document).ready( function(){
 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
 		var wrongThreePosition = (((fakeAnswerPosition+3) % fakeAnswerPosition)+1);
 		answerPosition = 10-(wrongOnePosition+wrongTwoPosition+wrongThreePosition)
+		console.log(fakeAnswerPosition);
+		console.log(wrongOnePosition);
+		console.log(wrongTwoPosition);
+		console.log(wrongThreePosition);
+		console.log(answerPosition);
 		
 		$("#questionBox").html(questions[questionNumber]);
 		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
