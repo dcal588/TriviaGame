@@ -14,7 +14,7 @@ $ (document).ready( function(){
 	$('#options input').on('change', function() {
    var choice = $('input[name=radioName]:checked','#options').val();
 	choicesMemory.push(choice);
-	restart();
+	next();
 	});
 
 	function run() {
@@ -29,10 +29,11 @@ $ (document).ready( function(){
 			$("#messageBox").html("Time Up!");
 		}
 	}
-	function restart() {
+	function next() {
 		clearInterval(intervalId);
 		timeCounter = 30;
 		$("#timer").html(timeCounter);
+		questionNumber++
 		placer();
 		run();
 	}
