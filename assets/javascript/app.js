@@ -39,9 +39,9 @@ $ (document).ready( function(){
 
 	function placer() {
 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1
-		var wrongOnePosition = ((fakeAnswerPosition+1) % fakeAnswerPosition)
-		var wrongTwoPosition = ((fakeAnswerPosition+2) % fakeAnswerPosition)
-		var wrongThreePosition = ((fakeAnswerPosition+3) % fakeAnswerPosition)
+		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1)
+		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1)
+		var wrongThreePosition = (((fakeAnswerPosition+3) % fakeAnswerPosition)+)
 		var answerPosition = ((fakeAnswerPosition+1) % fakeAnswerPosition)
 		
 		$("#questionBox").html(questions[questionNumber]);
