@@ -14,6 +14,7 @@ $ (document).ready( function(){
 	$('#options input').on('change', function() {
    var choice = $('input[name=radioName]:checked','#options').val();
 	choicesMemory.push(choice);
+	$(this).checked = false;  
 	if (choice === answerPosition){
 		numberRight++
 	}
