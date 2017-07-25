@@ -36,7 +36,14 @@ $ (document).ready( function(){
 		placer();
 		run();
 	}
+
 	function placer() {
+		var answerPosition = Math.floor(Math.random() * 4) + 1
+		var wrongOnePosition = ((answerPosition+1) % answerPosition)
+		var wrongTwoPosition = ((answerPosition+2) % answerPosition)
+		var wrongThreePosition = ((answerPosition+3) % answerPosition)
+		
+		$("#questionBox").html(questions[questionNumber]);
 		$("#questionBox").html(questions[questionNumber]);
 		console.log(questionNumber);
 	}
