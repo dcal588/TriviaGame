@@ -1,4 +1,6 @@
 $ (document).ready( function(){
+	var rightAnswers = [];
+	var wrongAnswers = [];
 	var choicesMemory = [];
 	var timeCounter = 30;
 	var intervalId;
