@@ -49,10 +49,12 @@ $ (document).ready( function(){
 	for (i=0; i<(position.length); i++) {
 		do {
 			var randomPosition = Math.floor(Math.random() * position.length);
+      			var wrongAnswerNumber = 0;
 		   }
 		while (isPositionAssigned());
-		  $("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
+		  $("#choice"+ i).html(wrongAnswers[(wrongAnswerNumber/.5)+wrongAnswerNumber]);
 			positionTracker.push(randomPosition);
+      			wrongAnswerNumber++ 
     }
 	function isPositionAssigned () {
 		for (var i = 0; i < positionTracker.length; i++) {
