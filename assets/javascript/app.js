@@ -47,21 +47,17 @@ $ (document).ready( function(){
 		run();
 	}
 
-	function placer() {
-		for (i=0; i<(position.length-1); i++) {
+	for (i=0; i<(position.length); i++) {
 		do {
 			var randomPosition = Math.floor(Math.random() * position.length);
 		   }
 		while (isPositionAssigned());
-		       	$("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
+		  $("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
 			positionTracker.push(randomPosition);
-			console.log(randomPosition);
-		}
-	}
-		
+    }
 	function isPositionAssigned () {
 		for (var i = 0; i < positionTracker.length; i++) {
-			if (questionTracker(i) === randomPosition) {
+			if (positionTracker[i] === randomPosition) {
 				return true;
 			}
 		}
