@@ -55,6 +55,7 @@ $ (document).ready( function(){
 		while (isPositionAssigned());
 		       	$("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
 			positionTracker.push(randomPosition);
+			console.log(randomPosition):
 	}
 		
 	function isPositionAssigned () {
