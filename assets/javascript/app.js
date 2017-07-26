@@ -47,6 +47,7 @@ $ (document).ready( function(){
 	}
 
 	function placer() {
+		for (i=0)
 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
