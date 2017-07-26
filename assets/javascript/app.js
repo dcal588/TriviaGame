@@ -14,7 +14,7 @@ $ (document).ready( function(){
 //	$("#restart").on("click", stop);
 
 	$('#options input').on('change', function() {
-   var choice = $('input[name=radioName]:checked','#options').val();
+   	var choice = $('input[name=radioName]:checked','#options').val();
 	choicesMemory.push(choice);
 	$(this).checked = false;  
 	if (choice === answerPosition){
@@ -56,6 +56,7 @@ $ (document).ready( function(){
 		       	$("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
 			positionTracker.push(randomPosition);
 			console.log(randomPosition);
+		}
 	}
 		
 	function isPositionAssigned () {
