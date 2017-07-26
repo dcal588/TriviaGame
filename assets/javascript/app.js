@@ -52,7 +52,7 @@ $ (document).ready( function(){
 		do {
 			var randomPosition = Math.floor(Math.random() * position.length);
 		   }
-		while (isPositionAssigned(){
+		while (isPositionAssigned());
 		       	$("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
 			positionTracker.push(randomPosition);
 	
