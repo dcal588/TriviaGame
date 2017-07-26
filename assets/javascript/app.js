@@ -8,6 +8,7 @@ $ (document).ready( function(){
 	var questionNumber = 0;
 	var numberRight = 0;
 	var numberWrong = 0;
+	var position = [1, 2, 3, 4];
 	
 //	$("#restart").on("click", stop);
 
