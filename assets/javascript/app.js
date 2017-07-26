@@ -43,7 +43,6 @@ $ (document).ready( function(){
 		timeCounter = 30;
 		$("#timer").html(timeCounter);
 		questionNumber++
-		placer();
 		run();
 	}
 
@@ -84,6 +83,5 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
 	console.log(numberRight);
-	placer();
 	run();
 });
