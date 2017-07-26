@@ -48,44 +48,44 @@ $ (document).ready( function(){
 	}
 
 	function placer() {
-		for (i=0; i<(position.length-1); i++) {
-		do {
-			var randomPosition = Math.floor(Math.random() * position.length);
-		   }
-		while (isPositionAssigned());
-		       	$("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
-			positionTracker.push(randomPosition);
-			console.log(randomPosition):
-	}
+// 		for (i=0; i<(position.length-1); i++) {
+// 		do {
+// 			var randomPosition = Math.floor(Math.random() * position.length);
+// 		   }
+// 		while (isPositionAssigned());
+// 		       	$("#choice"+ i).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
+// 			positionTracker.push(randomPosition);
+// 			console.log(randomPosition):
+// 	}
 		
-	function isPositionAssigned () {
-		for (var i = 0; i < positionTracker.length; i++) {
-			if (questionTracker(i) === randomPosition) {
-				return true;
-			}
-		}
-		return false;
-	}
+// 	function isPositionAssigned () {
+// 		for (var i = 0; i < positionTracker.length; i++) {
+// 			if (questionTracker(i) === randomPosition) {
+// 				return true;
+// 			}
+// 		}
+// 		return false;
+// 	}
 		
 		       
 		
-// 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
-// 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
-// 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
-// 		var wrongThreePosition = (((fakeAnswerPosition+3) % fakeAnswerPosition)+1);
-// 		answerPosition = 10-(wrongOnePosition+wrongTwoPosition+wrongThreePosition)
-// 		console.log(fakeAnswerPosition);
-// 		console.log(wrongOnePosition);
-// 		console.log(wrongTwoPosition);
-// 		console.log(wrongThreePosition);
-// 		console.log(answerPosition);
+		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
+		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
+		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
+		var wrongThreePosition = (((fakeAnswerPosition+3) % fakeAnswerPosition)+1);
+		answerPosition = 10-(wrongOnePosition+wrongTwoPosition+wrongThreePosition)
+		console.log(fakeAnswerPosition);
+		console.log(wrongOnePosition);
+		console.log(wrongTwoPosition);
+		console.log(wrongThreePosition);
+		console.log(answerPosition);
 		
-// 		$("#questionBox").html(questions[questionNumber]);
-// 		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
-// 		$("#choice"+ wrongOnePosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
-// 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
-// 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
-// 	}
+		$("#questionBox").html(questions[questionNumber]);
+		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
+		$("#choice"+ wrongOnePosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
+		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
+		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
+	}
 	console.log(numberRight);
 	placer();
 	run();
