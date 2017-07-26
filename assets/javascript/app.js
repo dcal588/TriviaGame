@@ -1,3 +1,4 @@
+$ (document).ready( function(){	
 	var questions = ["Question1", "Question2", "Question3", "Question4", "Question5"];
 	var rightAnswers = ["rightAnswer1", "rightAnswer2", "rightAnswer3", "rightAnswer4", "rightAnswer5"];
 	var wrongAnswers = ["wrongAnswer1a", "wrongAnswer1b", "wrongAnswer1c", "wrongAnswer2a", "wrongAnswer2b", "wrongAnswer2c", "wrongAnswer3a", "wrongAnswer3b", "wrongAnswer3c", "wrongAnswer4a", "wrongAnswer4b", "wrongAnswer4c", "wrongAnswer5a", "wrongAnswer5b", "wrongAnswer5c"];
@@ -88,3 +89,4 @@
 	console.log(numberRight);
 	placer();
 	run();
+});
