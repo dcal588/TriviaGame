@@ -52,10 +52,10 @@ $ (document).ready( function(){
       			var wrongAnswerNumber = 0;
 		   }
 		while (isPositionAssigned());
-		  $("#choice"+ i).html(wrongAnswers[(wrongAnswerNumber/.5)+wrongAnswerNumber]);
+		  $("#choice"+ i).html(wrongAnswers[i]);
 			positionTracker.push(randomPosition);
-      			wrongAnswerNumber++ 
-    }
+      			console.log(wrongAnswerNumber);
+    	}
 	function isPositionAssigned () {
 		for (var i = 0; i < positionTracker.length; i++) {
 			if (positionTracker[i] === randomPosition) {
