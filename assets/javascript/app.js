@@ -51,7 +51,6 @@ $ (document).ready( function(){
 			var randomPosition = Math.floor(Math.random() * position.length);
 		   }
 		while (isPositionAssigned());
-      			$("#choice"+ randomPosition).html(rightAnswers[i]);
 		 	$("#choice"+ randomPosition).html(wrongAnswers[i]);
 			positionTracker.push(randomPosition);  
     	}
@@ -83,6 +82,6 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
-	console.log(numberRight);
+	$("#messageBox").html("change 1");
 	run();
 });
