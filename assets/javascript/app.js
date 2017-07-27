@@ -46,7 +46,7 @@ $ (document).ready( function(){
 		run();
 	}
 
-	for (i=0; i<4; i++) {
+	for (i=0; i < position.length; i++) {
 		do {
 			var randomPosition = Math.floor(Math.random() * position.length);
 		   }
@@ -82,6 +82,6 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
-	$("#messageBox").html("change 2");
+	$("#messageBox").html("change 3");
 	run();
 });
