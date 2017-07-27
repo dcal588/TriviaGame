@@ -12,15 +12,17 @@ $ (document).ready( function(){
 	
 //	$("#restart").on("click", stop);
 
-	$('#options input').on('change', function() {
-   	var choice = $('input[name=radioName]:checked','#options').val();
-	choicesMemory.push(choice);
-	$(this).checked = false;  
-	if (choice === answerPosition){
+	$('#options input').on('change', function(i) {
+   	var choice = i.currentTarget.nextSibling.innerHTML
+	  choicesMemory.push(choice);
+	  $(this).checked = false;
+	if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
 		numberRight++
+    console.log("right:" + numberRight);
 	}
 	else {
 		numberWrong++
+    console.log("wrong:"+numberWrong);
 	}
 	next();
 	});
@@ -79,6 +81,6 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
-	$("#messageBox").html("change 3");
+	$("#messageBox").html("change 4");
 	run();
 });
