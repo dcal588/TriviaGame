@@ -34,7 +34,7 @@ $ (document).ready( function(){
 		timeCounter--
 		$("#timer").html(timeCounter);
 		if(timeCounter === 0) {
-			stop();
+			next();
 			$("#messageBox").html("Time Up!");
 		}
 	}
