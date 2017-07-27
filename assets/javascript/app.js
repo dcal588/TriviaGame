@@ -8,7 +8,7 @@ $ (document).ready( function(){
 	var numberRight = 0;
 	var numberWrong = 0;
 	var position = [1, 2, 3, 4];
-	var positionTracker = [];
+	var questionPlaced = [];
 	
 //	$("#restart").on("click", stop);
 
@@ -51,11 +51,11 @@ $ (document).ready( function(){
 		   }
 		while (isPositionAssigned());
 		 	$("#choice"+ randomPosition).html(Answers[i]);
-			positionTracker.push(randomPosition);  
+			questionPlaced.push(randomPosition);  
     	}
 	function isPositionAssigned () {
-		for (var i = 0; i < positionTracker.length; i++) {
-			if (positionTracker[i] === randomPosition) {
+		for (var i = 0; i < questionPlaced.length; i++) {
+			if (questionPlaced[i] === randomPosition) {
 				return true;
 			}
 		}
