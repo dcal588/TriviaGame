@@ -5,21 +5,21 @@
   <meta charset="UTF-8">
   <title>Trivia Game</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
   <body>
   <div class="container">
-    <h1>Trivia Game</h1>
+    <h1>Orange County Small Business Development Center</h1>
     <h2>Timer:<span id="timer"></span></h2>
     <div id="messageBox"></div>
     <div id="questionBox"></div>
     <form id="options">
-      <input type="radio" name="radioName" value="1" /><span id="choice0">1</span>
-      <input type="radio" name="radioName" value="2" /><span id="choice1">2</span>
-      <input type="radio" name="radioName" value="3" /><span id="choice2">3</span>
-      <input type="radio" name="radioName" value="4" /><span id="choice3">4</span>
+      <label>
+      <input type="radio" name="radioName" value="1" /><span id="choice0" class="answerBox">1</span></label>
+      <input type="radio" name="radioName" value="2" /><span id="choice1" class="answerBox">2</span>
+      <input type="radio" name="radioName" value="3" /><span id="choice2" class="answerBox">3</span>
+      <input type="radio" name="radioName" value="4" /><span id="choice3" class="answerBox">4</span>
 </form>
     <p>Wins: <span id="wins">0</span></p>
     <p>Losses: <span id="losses">0</span></p>
@@ -27,6 +27,5 @@
   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="assets/javascript/app.js"></script>
 </body>
 </html>
