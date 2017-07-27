@@ -82,6 +82,6 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
-	$("#messageBox").html("change 1");
+	$("#messageBox").html("change 2");
 	run();
 });
