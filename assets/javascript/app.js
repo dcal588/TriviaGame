@@ -46,7 +46,7 @@ $ (document).ready( function(){
 		run();
 	}
 
-	for (i=0; i<(position.length); i++) {
+	for (i=0; i<4; i++) {
 		do {
 			var randomPosition = Math.floor(Math.random() * position.length);
 		   }
@@ -56,7 +56,7 @@ $ (document).ready( function(){
     	}
 	function isPositionAssigned () {
 		for (var i = 0; i < positionTracker.length; i++) {
-			if (positionTracker[i] === randomPosition) {
+			if (positionTracker[i] !== randomPosition) {
 				return true;
 			}
 		}
