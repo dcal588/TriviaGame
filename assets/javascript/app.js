@@ -46,16 +46,15 @@ $ (document).ready( function(){
 		run();
 	}
 
-	for (i=0; i<(position.length-1); i++) {
+	for (i=0; i<(position.length); i++) {
 		do {
 			var randomPosition = Math.floor(Math.random() * position.length);
-      			var wrongAnswerNumber = 0;
 		   }
 		while (isPositionAssigned());
-		  $("#choice"+ randomPosition).html(wrongAnswers[i]);
-			positionTracker.push(randomPosition);
-      			console.log(wrongAnswerNumber);
-    }
+      			$("#choice"+ randomPosition).html(rightAnswers[i]);
+		 	$("#choice"+ randomPosition).html(wrongAnswers[i]);
+			positionTracker.push(randomPosition);  
+    	}
 	function isPositionAssigned () {
 		for (var i = 0; i < positionTracker.length; i++) {
 			if (positionTracker[i] === randomPosition) {
