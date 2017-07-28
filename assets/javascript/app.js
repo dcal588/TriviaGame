@@ -44,9 +44,10 @@ $ (document).ready( function(){
 		timeCounter = 30;
 		$("#timer").html(timeCounter);
 		questionNumber++
+
 		run();
 	}
-
+	function placer() {
 	for (i=0; i < position.length; i++) {
 		do {
 			var randomPosition = Math.floor(Math.random() * position.length);
@@ -63,7 +64,7 @@ $ (document).ready( function(){
 		}
 		return false;
 	}
-		
+  }
 // 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
 // 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
 // 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
@@ -82,5 +83,6 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
 	$("#messageBox").html("change 3");
+  placer();
 	run();
 });
