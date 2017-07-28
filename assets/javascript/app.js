@@ -13,7 +13,7 @@ $ (document).ready( function(){
 //	$("#restart").on("click", stop);
 
 	$('#options input').on('change', function(i) {
-   	var choice = i.currentTarget.nextSibling.innerHTML
+   	var choice = i.currentTarget.nextSibling.innerHTML;
 	  choicesMemory.push(choice);
 	  $(this).checked = false;
 	if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
