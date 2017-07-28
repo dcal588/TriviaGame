@@ -82,7 +82,8 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
-	$("#messageBox").html("change 3");
+	$("#messageBox").html("change 5");
   placer();
 	run();
 });
+
