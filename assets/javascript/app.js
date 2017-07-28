@@ -1,7 +1,7 @@
 $ (document).ready( function(){	
 	var questions = ["Question1", "Question2", "Question3", "Question4", "Question5"];
 	var Answers = ["wrongAnswer1a", "wrongAnswer1b", "wrongAnswer1c", "rightAnswer1", "wrongAnswer2a", "wrongAnswer2b", "wrongAnswer2c", "rightAnswer2", "wrongAnswer3a", "wrongAnswer3b", "wrongAnswer3c", "rightAnswer3", "wrongAnswer4a", "wrongAnswer4b", "wrongAnswer4c", "rightAnswer4", "wrongAnswer5a", "wrongAnswer5b", "wrongAnswer5c", "rightAnswer5",];
-	var choicesMemory = [];
+	//var choicesMemory = [];
 	var timeCounter = 30;
 	var intervalId;
 	var questionNumber = 0;
@@ -14,7 +14,7 @@ $ (document).ready( function(){
 
 	$('#options input').on('change', function(i) {
    	var choice = i.currentTarget.nextSibling.innerHTML;
-	  choicesMemory.push(choice);
+	  //choicesMemory.push(choice);
 	if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
 		numberRight++
 		$(this).prop('checked', false);
@@ -50,12 +50,14 @@ $ (document).ready( function(){
 	}
 	function placer() {
 		for (i=0; i < position.length; i++) {
+			var token = 0;
 			do {
 				var randomPosition = Math.floor(Math.random() * position.length);
 		  }
 			while (isPositionAssigned());
-		 		$("#choice"+ randomPosition).html(Answers[i]);
-				questionPlaced.push(randomPosition);  
+		 		$("#choice"+ randomPosition).html(Answers[(questionNumber/.5)+(questionNumber+(token*questionNumber))]);
+				questionPlaced.push(randomPosition); 
+				token++
   	}
 		function isPositionAssigned () {
 			for (var i = 0; i < questionPlaced.length; i++) {
