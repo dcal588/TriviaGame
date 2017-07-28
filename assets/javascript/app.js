@@ -8,25 +8,25 @@ $ (document).ready( function(){
 	var numberRight = 0;
 	var numberWrong = 0;
 	var position = [1, 2, 3, 4];
-	var questionPlaced = [];
+	var responsePlaced = [];
 	
 //	$("#restart").on("click", stop);
 
 	$('#options input').on('change', function(i) {
-   	var choice = i.currentTarget.nextSibling.innerHTML;
+   		var choice = i.currentTarget.nextSibling.innerHTML;
 	  //choicesMemory.push(choice);
-	if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
-		numberRight++
-		$(this).prop('checked', false);
-    	console.log("right:" + numberRight);
-    	next();
-	}
-	else {
-		numberWrong++
-		$(this).prop('checked', false);
-    	console.log("wrong:"+numberWrong);
-    	next();
-	}
+		if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
+			numberRight++
+			$(this).prop('checked', false);
+    			console.log("right:" + numberRight);
+    			next();
+		}
+		else {
+			numberWrong++
+			$(this).prop('checked', false);
+    			console.log("wrong:"+numberWrong);
+    			next();
+		}
 	});
 
 	function run() {
@@ -41,6 +41,7 @@ $ (document).ready( function(){
 			$("#messageBox").html("Time Up!");
 		}
 	}
+	
 	function next() {
 		clearInterval(intervalId);
 		timeCounter = 30;
@@ -49,24 +50,39 @@ $ (document).ready( function(){
 		run();
     		console.log(questionNumber);
 	}
-	function placer() {
+  // function randomizer() {
+  //     var randomPosition = Math.floor(Math.random() * position.length);
+  //     isPositionAssigned(randomPosition);
+  // }
+  	function placer () {
 		for (i=0; i < position.length; i++) {
-			do {
-				var randomPosition = Math.floor(Math.random() * position.length);
-		  	}
-			while (isPositionAssigned());
-		 		$("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
-				questionPlaced.push(randomPosition); 
-  			}
-			function isPositionAssigned () {
-				for (var i = 0; i < questionPlaced.length; i++) {
-					if (questionPlaced[i] === randomPosition) {
-					return true;
-					}
-				}
-				return false;
+        		var randomPosition = Math.floor(Math.random() * position.length);
+        		console.log("randomPosition:"+randomPosition);
+        		responsePlaced.push(randomPosition);
+			if (responsePlaced[i] === randomPosition) {
+          			$("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
 			}
-  		}
+		}
+  	}
+  	console.log("ResponsePlaced:"+responsePlaced);
+	// function placer() {
+	// 	for (i=0; i < position.length; i++) {
+	// 		do {
+	// 			var randomPosition = Math.floor(Math.random() * position.length);
+	// 	  }
+	// 		while (isPositionAssigned());
+	// 	 		$("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
+	// 			questionPlaced.push(randomPosition); 
+	// }
+	// 	function isPositionAssigned () {
+	// 		for (var i = 0; i < questionPlaced.length; i++) {
+	// 			if (questionPlaced[i] === randomPosition) {
+	// 				return true;
+	// 			}
+	// 		}
+	// 		return false;
+	// 	}
+	// }
 // 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
 // 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
 // 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
