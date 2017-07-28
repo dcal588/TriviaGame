@@ -15,16 +15,18 @@ $ (document).ready( function(){
 	$('#options input').on('change', function(i) {
    	var choice = i.currentTarget.nextSibling.innerHTML;
 	  choicesMemory.push(choice);
-	  $(this).checked = false;
 	if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
 		numberRight++
+		$(this).prop('checked', false);
     console.log("right:" + numberRight);
+    next();
 	}
 	else {
 		numberWrong++
+		$(this).prop('checked', false);
     console.log("wrong:"+numberWrong);
+    next();
 	}
-	next();
 	});
 
 	function run() {
@@ -44,26 +46,25 @@ $ (document).ready( function(){
 		timeCounter = 30;
 		$("#timer").html(timeCounter);
 		questionNumber++
-
 		run();
 	}
 	function placer() {
-	for (i=0; i < position.length; i++) {
-		do {
-			var randomPosition = Math.floor(Math.random() * position.length);
-		   }
-		while (isPositionAssigned());
-		 	$("#choice"+ randomPosition).html(Answers[i]);
-			questionPlaced.push(randomPosition);  
-    	}
-	function isPositionAssigned () {
-		for (var i = 0; i < questionPlaced.length; i++) {
-			if (questionPlaced[i] === randomPosition) {
-				return true;
+		for (i=0; i < position.length; i++) {
+			do {
+				var randomPosition = Math.floor(Math.random() * position.length);
+		  }
+			while (isPositionAssigned());
+		 		$("#choice"+ randomPosition).html(Answers[i]);
+				questionPlaced.push(randomPosition);  
+  	}
+		function isPositionAssigned () {
+			for (var i = 0; i < questionPlaced.length; i++) {
+				if (questionPlaced[i] === randomPosition) {
+					return true;
+				}
 			}
+			return false;
 		}
-		return false;
-	}
   }
 // 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
 // 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
@@ -82,7 +83,6 @@ $ (document).ready( function(){
 // 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
 // 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
 // 	}
-	$("#messageBox").html("change 5");
   placer();
 	run();
 });
