@@ -14,7 +14,7 @@ $ (document).ready( function(){
 
 	$('#options input').on('change', function(i) {
    		var choice = i.currentTarget.nextSibling.innerHTML;
-	  //choicesMemory.push(choice);
+	  	//choicesMemory.push(choice);
 		if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
 			numberRight++
 			$(this).prop('checked', false);
@@ -48,41 +48,41 @@ $ (document).ready( function(){
 		$("#timer").html(timeCounter);
 		questionNumber++
 		run();
-    		console.log(questionNumber);
 	}
   // function randomizer() {
   //     var randomPosition = Math.floor(Math.random() * position.length);
   //     isPositionAssigned(randomPosition);
   // }
-  	function placer () {
+  // function placer (false) {
+  // for (i=0; i < position.length; i++) {
+  //       var randomPosition = Math.floor(Math.random() * position.length);
+  //       if (randomPosition.constructor === responsePlaced) {
+  //         responsePlaced.push(randomPosition);
+  //         $("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
+  //         console.log(randomPosition);
+  //         console.log(responsePlaced);
+  // }
+  // }
+  // }
+
+	function placer() {
 		for (i=0; i < position.length; i++) {
-        		var randomPosition = Math.floor(Math.random() * position.length);
-        		console.log("randomPosition:"+randomPosition);
-        		responsePlaced.push(randomPosition);
-			if (responsePlaced[i] === randomPosition) {
-          			$("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
+			do {
+				var randomPosition = Math.floor(Math.random() * position.length);
 			}
+			while (isPositionAssigned());
+		 		$("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
+				responsePlaced.push(randomPosition); 
+	  		}
+			function isPositionAssigned () {
+				for (i = 0; i < responsePlaced.length; i++) {
+				if (randomPosition === responsePlaced[i]) {
+					return true;
+				}
+			}
+			return false;
 		}
   	}
-  	console.log("ResponsePlaced:"+responsePlaced);
-	// function placer() {
-	// 	for (i=0; i < position.length; i++) {
-	// 		do {
-	// 			var randomPosition = Math.floor(Math.random() * position.length);
-	// 	  }
-	// 		while (isPositionAssigned());
-	// 	 		$("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
-	// 			questionPlaced.push(randomPosition); 
-	// }
-	// 	function isPositionAssigned () {
-	// 		for (var i = 0; i < questionPlaced.length; i++) {
-	// 			if (questionPlaced[i] === randomPosition) {
-	// 				return true;
-	// 			}
-	// 		}
-	// 		return false;
-	// 	}
-	// }
 // 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
 // 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
 // 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
@@ -93,7 +93,6 @@ $ (document).ready( function(){
 // 		console.log(wrongTwoPosition);
 // 		console.log(wrongThreePosition);
 // 		console.log(answerPosition);
-		
 // 		$("#questionBox").html(questions[questionNumber]);
 // 		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
 // 		$("#choice"+ wrongOnePosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
