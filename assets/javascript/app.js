@@ -20,12 +20,14 @@ $ (document).ready( function(){
 			$(this).prop('checked', false);
     			console.log("right:" + numberRight);
     			next();
+      			placer();
 		}
 		else {
 			numberWrong++
 			$(this).prop('checked', false);
     			console.log("wrong:"+numberWrong);
     			next();
+      			placer();
 		}
 	});
 
@@ -44,27 +46,13 @@ $ (document).ready( function(){
 	
 	function next() {
 		clearInterval(intervalId);
+    		responsePlaced = [];
 		timeCounter = 30;
 		$("#timer").html(timeCounter);
 		questionNumber++
 		run();
 	}
-  // function randomizer() {
-  //     var randomPosition = Math.floor(Math.random() * position.length);
-  //     isPositionAssigned(randomPosition);
-  // }
-  // function placer (false) {
-  // for (i=0; i < position.length; i++) {
-  //       var randomPosition = Math.floor(Math.random() * position.length);
-  //       if (randomPosition.constructor === responsePlaced) {
-  //         responsePlaced.push(randomPosition);
-  //         $("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
-  //         console.log(randomPosition);
-  //         console.log(responsePlaced);
-  // }
-  // }
-  // }
-
+	
 	function placer() {
 		for (i=0; i < position.length; i++) {
 			do {
@@ -83,22 +71,6 @@ $ (document).ready( function(){
 			return false;
 		}
   	}
-// 		var fakeAnswerPosition = Math.floor(Math.random() * 4) + 1;
-// 		var wrongOnePosition = (((fakeAnswerPosition+1) % fakeAnswerPosition)+1);
-// 		var wrongTwoPosition = (((fakeAnswerPosition+2) % fakeAnswerPosition)+1);
-// 		var wrongThreePosition = (((fakeAnswerPosition+3) % fakeAnswerPosition)+1);
-// 		answerPosition = 10-(wrongOnePosition+wrongTwoPosition+wrongThreePosition)
-// 		console.log(fakeAnswerPosition);
-// 		console.log(wrongOnePosition);
-// 		console.log(wrongTwoPosition);
-// 		console.log(wrongThreePosition);
-// 		console.log(answerPosition);
-// 		$("#questionBox").html(questions[questionNumber]);
-// 		$("#choice"+ answerPosition).html(rightAnswers[questionNumber]);
-// 		$("#choice"+ wrongOnePosition).html(wrongAnswers[(questionNumber/.5)+questionNumber]);
-// 		$("#choice"+ wrongTwoPosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+1)]);
-// 		$("#choice"+ wrongThreePosition).html(wrongAnswers[(questionNumber/.5)+(questionNumber+2)]);
-// 	}
   	placer();
 	run();
 });
