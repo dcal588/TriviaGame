@@ -18,8 +18,16 @@ $ (document).ready( function(){
 				$("#rightAnswerCount").text(numberRight);
 				$("#wrongAnswerCount").text(numberWrong);
 	}
-	
-//	$("#restart").on("click", stop);
+
+		function restart() {
+			questionNumber=0;
+			numberRight=0;
+			numberWrong=0;
+			$("#messageBox").css("display", "none");
+    	responsePlaced = [];
+			placer();
+	}
+	$("#restart").on("click", restart);
 
 	$('#options input').on('change', function(i) {
 			if (questionNumber<questions.length) {
@@ -92,6 +100,7 @@ $ (document).ready( function(){
 					$("#rightAnswerCount").text(numberRight);
 					$("#wrongAnswerCount").text(numberWrong);
 					questionNumber++
+					numberWrong++
     		}
 			}
 		}
@@ -114,6 +123,7 @@ $ (document).ready( function(){
 	}
 	
 	function placer() {
+		$("#questionBox").html(questions[questionNumber]);
 		for (i=0; i < position.length; i++) {
 			do {
 				var randomPosition = Math.floor(Math.random() * position.length);
