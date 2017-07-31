@@ -18,20 +18,30 @@ $ (document).ready( function(){
 		if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
 			numberRight++
 			$(this).prop('checked', false);
-    			console.log("right:" + numberRight);
-    			next();
-      		placer();
-      		$("#messageBox").css("display", "block");
-      		$("#message").text("Correct!");
+    	console.log("right:" + numberRight);
+    	next();
+    	placer();
+      if ($('#messageBox').css('display')==="block") {
+				$("#messageBox").css("display", "none");
+    	}
+    	else {
+    		$("#messageBox").css("display", "block");
+				$("#message").text("Time Up!");
+    	}
 		}
 		else {
 			numberWrong++
 			$(this).prop('checked', false);
-    			console.log("wrong:"+numberWrong);
-    			next();
-      		placer();
-      		$("#messageBox").css("display", "block");
-      		$("#message").text("Wrong!");
+    	console.log("wrong:"+numberWrong);
+    	next();
+      placer();
+      if ($('#messageBox').css('display')==="block") {
+				$("#messageBox").css("display", "none");
+    	}
+    	else {
+    		$("#messageBox").css("display", "block");
+				$("#message").text("Time Up!");
+    	}
 		}
 	});
 
@@ -44,15 +54,24 @@ $ (document).ready( function(){
 		$("#timer").html(timeCounter);
 		if(timeCounter === 0) {
 			next();
-			$("#messageBox").css("display", "block");
+			if ($('#messageBox').css('display')==="block") {
+			$("#messageBox").css("display", "none");
+    	}
+    	else {
+    	$("#messageBox").css("display", "block");
 			$("#message").text("Time Up!");
+    	}
 		}
 	}
-	
 	function next() {
 		clearInterval(intervalId);
-    		responsePlaced = [];
-		timeCounter = 30;
+    responsePlaced = [];
+    if ($('#messageBox').css('display')==="block") {
+    	timeCounter = 30;
+    }
+    else {
+    	timeCounter = 5;
+    }
 		$("#timer").html(timeCounter);
 		questionNumber++
 		run();
@@ -77,5 +96,5 @@ $ (document).ready( function(){
 		}
   	}
   	placer();
-	run();
+		run();
 });
