@@ -97,13 +97,13 @@ $ (document).ready( function(){
 					$("#messageBox").css("display", "none");
     				}
     				else {
-    					questionNumber++
 					numberWrong++
     					$("#messageBox").css("display", "block");
 					$("#message").text("Time Up!");
 					$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
 					$("#rightAnswerCount").text("Number Right: " + numberRight);
 					$("#wrongAnswerCount").text("Number Wrong: " + numberWrong);
+					questionNumber++
     				}
 			}
 		}
