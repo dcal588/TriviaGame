@@ -9,48 +9,61 @@ $ (document).ready( function(){
 	var numberWrong = 0;
 	var position = [1, 2, 3, 4];
 	var responsePlaced = [];
+
+	function ender() {
+    		$("#messageBox").css("display", "block");
+				$("#message").text("Game Over!");
+				$("#correctAnswer").text("");
+				$("#rightAnswerCount").text(numberRight);
+				$("#wrongAnswerCount").text(numberWrong);
+	}
 	
 //	$("#restart").on("click", stop);
 
 	$('#options input').on('change', function(i) {
-   		var choice = i.currentTarget.nextSibling.innerHTML;
+			if (questionNumber<(questions.length)) {
+   			var choice = i.currentTarget.nextSibling.innerHTML;
 	  	//choicesMemory.push(choice);
-		if (choice === answers[3] || choice === answers[7] || choice === answers[11] ||choice === answers[15]){
-			numberRight++
-			$(this).prop('checked', false);
-    	console.log("right:" + numberRight);
-    	next();
-    	placer();
-      if ($('#messageBox').css('display')==="block") {
-				$("#messageBox").css("display", "none");
-    	}
-    	else {
-    		$("#messageBox").css("display", "block");
-				$("#message").text("Correct!");
-				$("#correctAnswer").text("");
-				$("#rightAnswerCount").text(numberRight);
-				$("#wrongAnswerCount").text(numberWrong);
-				questionNumber++
-    	}
-		}
-		else {
-			numberWrong++
-			$(this).prop('checked', false);
-    	console.log("wrong:"+numberWrong);
-    	next();
-      placer();
-      if ($('#messageBox').css('display')==="block") {
-				$("#messageBox").css("display", "none");
-    	}
-    	else {
-    		$("#messageBox").css("display", "block");
-				$("#message").text("Wrong!");
-				$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
-				$("#rightAnswerCount").text(numberRight);
-				$("#wrongAnswerCount").text(numberWrong);
-				questionNumber++
-    	}
-		}
+				if (choice === answers[3] || choice === answers[7] || choice === answers[11] ||choice === answers[15]){
+					numberRight++
+					$(this).prop('checked', false);
+    			console.log("right:" + numberRight);
+    			next();
+    			placer();
+      		if ($('#messageBox').css('display')==="block") {
+						$("#messageBox").css("display", "none");
+    			}
+    			else {
+    				$("#messageBox").css("display", "block");
+						$("#message").text("Correct!");
+						$("#correctAnswer").text("");
+						$("#rightAnswerCount").text(numberRight);
+						$("#wrongAnswerCount").text(numberWrong);
+						questionNumber++
+    			}
+				}
+				else {
+					numberWrong++
+					$(this).prop('checked', false);
+    			console.log("wrong:"+numberWrong);
+    			next();
+      		placer();
+      		if ($('#messageBox').css('display')==="block") {
+						$("#messageBox").css("display", "none");
+    			}
+    			else {
+    				$("#messageBox").css("display", "block");
+						$("#message").text("Wrong!");
+						$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
+						$("#rightAnswerCount").text(numberRight);
+						$("#wrongAnswerCount").text(numberWrong);
+						questionNumber++
+    			}
+				}
+			}
+			else {
+			ender();
+			}
 	});
 
 	function run() {
@@ -77,7 +90,6 @@ $ (document).ready( function(){
 		}
 	}
 	function next() {
-		if (questionNumber<questions.length) {
 			clearInterval(intervalId);
     	responsePlaced = [];
     	if ($('#messageBox').css('display')==="block") {
@@ -88,14 +100,6 @@ $ (document).ready( function(){
     	}
 			$("#timer").html(timeCounter);
 			run();
-		}
-		else {
-    		$("#messageBox").css("display", "block");
-				$("#message").text("Game Over!");
-				$("#correctAnswer").text("");
-				$("#rightAnswerCount").text(numberRight);
-				$("#wrongAnswerCount").text(numberWrong);			
-		}
 	}
 	
 	function placer() {
