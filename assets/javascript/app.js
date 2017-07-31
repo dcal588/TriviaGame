@@ -26,7 +26,7 @@ $ (document).ready( function(){
     	}
     	else {
     		$("#messageBox").css("display", "block");
-				$("#message").text("Time Up!");
+				$("#message").text("Correct!");
     	}
 		}
 		else {
@@ -40,7 +40,7 @@ $ (document).ready( function(){
     	}
     	else {
     		$("#messageBox").css("display", "block");
-				$("#message").text("Time Up!");
+				$("#message").text("Wrong!");
     	}
 		}
 	});
