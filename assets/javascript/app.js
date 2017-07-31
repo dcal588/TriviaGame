@@ -1,6 +1,6 @@
 $ (document).ready( function(){	
-	var questions = ["Question1", "Question2", "Question3", "Question4", "Question5"];
-	var answers = ["wrongAnswer1a", "wrongAnswer1b", "wrongAnswer1c", "rightAnswer1", "wrongAnswer2a", "wrongAnswer2b", "wrongAnswer2c", "rightAnswer2", "wrongAnswer3a", "wrongAnswer3b", "wrongAnswer3c", "rightAnswer3", "wrongAnswer4a", "wrongAnswer4b", "wrongAnswer4c", "rightAnswer4", "wrongAnswer5a", "wrongAnswer5b", "wrongAnswer5c", "rightAnswer5",];
+	var questions = ["The Fantastic Four have the headquarters in what building?", "Thor has two war goats to pull his chariot. They are named:", "S.H.I.E.L.D.'s highest ranking agent is:", "Captain America was frozen in which war?", "Deadpool joined the Weapon X program because:"];
+	var answers = ["Stark Tower", "Fantastic Headquarters", "Xavier Institute", "Baxter Building", "Thunder and Lightning", "Balder and Hermod", "Ask and Embla", "Toothgrinder and Toothgnasher", "Steven Rogers", "Peter Parker", "Natalia Romanova", "Nick Fury", "World War I", "Cold War", "American Civil War", "World War II", "He was forced to", "He thought it would be fun", "He wanted to fight for justice", "He had incurable cancer",];
 	//var choicesMemory = [];
 	var timeCounter = 30;
 	var intervalId;
@@ -15,8 +15,8 @@ $ (document).ready( function(){
     		$("#messageBox").css("display", "block");
 				$("#message").text("Game Over!");
 				$("#correctAnswer").text("");
-				$("#rightAnswerCount").text(numberRight);
-				$("#wrongAnswerCount").text(numberWrong);
+				$("#rightAnswerCount").text("Number Right: " + numberRight);
+				$("#wrongAnswerCount").text("Number Wrong: " + numberWrong);
 				$("#restart").css("display", "block");
 		}
 	}
