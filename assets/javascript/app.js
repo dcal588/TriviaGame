@@ -11,12 +11,12 @@ $ (document).ready( function(){
 	var responsePlaced = [];
 
 	function ender() {
-
     		$("#messageBox").css("display", "block");
 				$("#message").text("Game Over!");
 				$("#correctAnswer").text("");
 				$("#rightAnswerCount").text(numberRight);
 				$("#wrongAnswerCount").text(numberWrong);
+				$("#restart").css("display", "block");
 	}
 
 		function restart() {
