@@ -23,9 +23,12 @@ $ (document).ready( function(){
 			questionNumber=0;
 			numberRight=0;
 			numberWrong=0;
-			$("#messageBox").css("display", "none");
-    	responsePlaced = [];
+			next();
 			placer();
+			$("#messageBox").css("display", "none");
+			$("#restart").css("display", "none");
+    	responsePlaced = [];
+
 	}
 	$("#restart").on("click", restart);
 
@@ -46,8 +49,8 @@ $ (document).ready( function(){
     				$("#messageBox").css("display", "block");
 						$("#message").text("Correct!");
 						$("#correctAnswer").text("");
-						$("#rightAnswerCount").text(numberRight);
-						$("#wrongAnswerCount").text(numberWrong);
+						$("#rightAnswerCount").text("Number Right: " + numberRight);
+						$("#wrongAnswerCount").text("Number Wrong: " + numberWrong);
 						questionNumber++
     			}
 				}
@@ -64,15 +67,15 @@ $ (document).ready( function(){
     				$("#messageBox").css("display", "block");
 						$("#message").text("Wrong!");
 						$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
-						$("#rightAnswerCount").text(numberRight);
-						$("#wrongAnswerCount").text(numberWrong);
+						$("#rightAnswerCount").text("Number Right: " + numberRight);
+						$("#wrongAnswerCount").text("Number Wrong: " + numberWrong);
 						questionNumber++
     			}
 				}
 			}
 			else {
 			window.setTimeout(stop,4000);
-			window.setTimeout(ender,5000);
+			window.setTimeout(ender,4000);
 			}
 	});
 
@@ -97,8 +100,8 @@ $ (document).ready( function(){
     			$("#messageBox").css("display", "block");
 					$("#message").text("Time Up!");
 					$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
-					$("#rightAnswerCount").text(numberRight);
-					$("#wrongAnswerCount").text(numberWrong);
+						$("#rightAnswerCount").text("Number Right: " + numberRight);
+						$("#wrongAnswerCount").text("Number Wrong: " + numberWrong);
 					questionNumber++
 					numberWrong++
     		}
@@ -106,7 +109,7 @@ $ (document).ready( function(){
 		}
 		else {
 			window.setTimeout(stop,4000);
-			window.setTimeout(ender,5000);
+			window.setTimeout(ender,4000);
 		}
 	}
 	function next() {

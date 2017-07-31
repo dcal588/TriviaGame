@@ -6,7 +6,6 @@ body {
 	position:absolute;
 	z-index:999;
 	width:74%;
-	height:50%;
 	margin:0 auto;
 }
 #message {
@@ -20,6 +19,9 @@ body {
 .blue {
 	background-color:#3498DB;
 	color:#ffffff;
+}
+.white {
+	background-color:#ffffff;
 }
 #questionBox {
 	margin-bottom:10px;
