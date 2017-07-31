@@ -1,6 +1,6 @@
 $ (document).ready( function(){	
 	var questions = ["Question1", "Question2", "Question3", "Question4", "Question5"];
-	var Answers = ["wrongAnswer1a", "wrongAnswer1b", "wrongAnswer1c", "rightAnswer1", "wrongAnswer2a", "wrongAnswer2b", "wrongAnswer2c", "rightAnswer2", "wrongAnswer3a", "wrongAnswer3b", "wrongAnswer3c", "rightAnswer3", "wrongAnswer4a", "wrongAnswer4b", "wrongAnswer4c", "rightAnswer4", "wrongAnswer5a", "wrongAnswer5b", "wrongAnswer5c", "rightAnswer5",];
+	var answers = ["wrongAnswer1a", "wrongAnswer1b", "wrongAnswer1c", "rightAnswer1", "wrongAnswer2a", "wrongAnswer2b", "wrongAnswer2c", "rightAnswer2", "wrongAnswer3a", "wrongAnswer3b", "wrongAnswer3c", "rightAnswer3", "wrongAnswer4a", "wrongAnswer4b", "wrongAnswer4c", "rightAnswer4", "wrongAnswer5a", "wrongAnswer5b", "wrongAnswer5c", "rightAnswer5",];
 	//var choicesMemory = [];
 	var timeCounter = 30;
 	var intervalId;
@@ -15,7 +15,7 @@ $ (document).ready( function(){
 	$('#options input').on('change', function(i) {
    		var choice = i.currentTarget.nextSibling.innerHTML;
 	  	//choicesMemory.push(choice);
-		if (choice === Answers[3] || choice === Answers[7] || choice === Answers[11] ||choice === Answers[15]){
+		if (choice === answers[3] || choice === answers[7] || choice === answers[11] ||choice === answers[15]){
 			numberRight++
 			$(this).prop('checked', false);
     	console.log("right:" + numberRight);
@@ -27,6 +27,9 @@ $ (document).ready( function(){
     	else {
     		$("#messageBox").css("display", "block");
 				$("#message").text("Correct!");
+				$("#correctAnswer").text("");
+				$("#rightAnswerCount").text(numberRight);
+				$("#wrongAnswerCount").text(numberWrong);
 				questionNumber++
     	}
 		}
@@ -42,6 +45,9 @@ $ (document).ready( function(){
     	else {
     		$("#messageBox").css("display", "block");
 				$("#message").text("Wrong!");
+				$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
+				$("#rightAnswerCount").text(numberRight);
+				$("#wrongAnswerCount").text(numberWrong);
 				questionNumber++
     	}
 		}
@@ -63,21 +69,33 @@ $ (document).ready( function(){
     	else {
     		$("#messageBox").css("display", "block");
 				$("#message").text("Time Up!");
+				$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
+				$("#rightAnswerCount").text(numberRight);
+				$("#wrongAnswerCount").text(numberWrong);
 				questionNumber++
     	}
 		}
 	}
 	function next() {
-		clearInterval(intervalId);
-    responsePlaced = [];
-    if ($('#messageBox').css('display')==="block") {
-    	timeCounter = 30;
-    }
-    else {
-    	timeCounter = 5;
-    }
-		$("#timer").html(timeCounter);
-		run();
+		if (questionNumber<questions.length) {
+			clearInterval(intervalId);
+    	responsePlaced = [];
+    	if ($('#messageBox').css('display')==="block") {
+    		timeCounter = 30;
+    	}
+    	else {
+    		timeCounter = 5;
+    	}
+			$("#timer").html(timeCounter);
+			run();
+		}
+		else {
+    		$("#messageBox").css("display", "block");
+				$("#message").text("Game Over!");
+				$("#correctAnswer").text("");
+				$("#rightAnswerCount").text(numberRight);
+				$("#wrongAnswerCount").text(numberWrong);			
+		}
 	}
 	
 	function placer() {
@@ -86,7 +104,7 @@ $ (document).ready( function(){
 				var randomPosition = Math.floor(Math.random() * position.length);
 			}
 			while (isPositionAssigned());
-		 		$("#choice"+ randomPosition).html(Answers[(questionNumber*4)+i]);
+		 		$("#choice"+ randomPosition).html(answers[(questionNumber*4)+i]);
 				responsePlaced.push(randomPosition); 
 	  		}
 			function isPositionAssigned () {
