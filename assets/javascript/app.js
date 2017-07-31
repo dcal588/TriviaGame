@@ -27,6 +27,7 @@ $ (document).ready( function(){
     	else {
     		$("#messageBox").css("display", "block");
 				$("#message").text("Correct!");
+				questionNumber++
     	}
 		}
 		else {
@@ -41,6 +42,7 @@ $ (document).ready( function(){
     	else {
     		$("#messageBox").css("display", "block");
 				$("#message").text("Wrong!");
+				questionNumber++
     	}
 		}
 	});
@@ -54,12 +56,14 @@ $ (document).ready( function(){
 		$("#timer").html(timeCounter);
 		if(timeCounter === 0) {
 			next();
+			placer();
 			if ($('#messageBox').css('display')==="block") {
-			$("#messageBox").css("display", "none");
+				$("#messageBox").css("display", "none");
     	}
     	else {
-    	$("#messageBox").css("display", "block");
-			$("#message").text("Time Up!");
+    		$("#messageBox").css("display", "block");
+				$("#message").text("Time Up!");
+				questionNumber++
     	}
 		}
 	}
@@ -73,7 +77,6 @@ $ (document).ready( function(){
     	timeCounter = 5;
     }
 		$("#timer").html(timeCounter);
-		questionNumber++
 		run();
 	}
 	
