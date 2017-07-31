@@ -9,9 +9,18 @@ body {
 	height:50%;
 	margin:0 auto;
 }
+#message {
+	margin:0 auto;
+	height:50px;
+	background-color:#ffffff;
+}
 #restart {
 	display:none;
 }
 .blue {
 	background-color:#3498DB;
+	color:#ffffff;
+}
+#questionBox {
+	margin-bottom:10px;
 }
