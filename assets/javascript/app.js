@@ -11,6 +11,7 @@ $ (document).ready( function(){
 	var responsePlaced = [];
 
 	function ender() {
+
     		$("#messageBox").css("display", "block");
 				$("#message").text("Game Over!");
 				$("#correctAnswer").text("");
@@ -21,10 +22,10 @@ $ (document).ready( function(){
 //	$("#restart").on("click", stop);
 
 	$('#options input').on('change', function(i) {
-			if (questionNumber<(questions.length)) {
+			if (questionNumber<questions.length) {
    			var choice = i.currentTarget.nextSibling.innerHTML;
 	  	//choicesMemory.push(choice);
-				if (choice === answers[3] || choice === answers[7] || choice === answers[11] ||choice === answers[15]){
+				if (choice === answers[3] || choice === answers[7] || choice === answers[11] ||choice === answers[15] ||choice === answers[19]){
 					numberRight++
 					$(this).prop('checked', false);
     			console.log("right:" + numberRight);
@@ -62,31 +63,41 @@ $ (document).ready( function(){
 				}
 			}
 			else {
-			ender();
+			window.setTimeout(stop,4000);
+			window.setTimeout(ender,5000);
 			}
 	});
 
 	function run() {
 		intervalId = setInterval(countDown, 1000);
 	}
+  function stop() {
+    clearInterval(intervalId);
+  }
 
 	function countDown() {
 		timeCounter--
 		$("#timer").html(timeCounter);
-		if(timeCounter === 0) {
-			next();
-			placer();
-			if ($('#messageBox').css('display')==="block") {
-				$("#messageBox").css("display", "none");
-    	}
-    	else {
-    		$("#messageBox").css("display", "block");
-				$("#message").text("Time Up!");
-				$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
-				$("#rightAnswerCount").text(numberRight);
-				$("#wrongAnswerCount").text(numberWrong);
-				questionNumber++
-    	}
+		if (questionNumber<questions.length) {
+			if(timeCounter === 0) {
+				next();
+				placer();
+				if ($('#messageBox').css('display')==="block") {
+					$("#messageBox").css("display", "none");
+    		}
+    		else {
+    			$("#messageBox").css("display", "block");
+					$("#message").text("Time Up!");
+					$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
+					$("#rightAnswerCount").text(numberRight);
+					$("#wrongAnswerCount").text(numberWrong);
+					questionNumber++
+    		}
+			}
+		}
+		else {
+			window.setTimeout(stop,4000);
+			window.setTimeout(ender,5000);
 		}
 	}
 	function next() {
