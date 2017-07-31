@@ -11,12 +11,14 @@ $ (document).ready( function(){
 	var responsePlaced = [];
 
 	function ender() {
+		if(timeCounter===0) {
     		$("#messageBox").css("display", "block");
 				$("#message").text("Game Over!");
 				$("#correctAnswer").text("");
 				$("#rightAnswerCount").text(numberRight);
 				$("#wrongAnswerCount").text(numberWrong);
 				$("#restart").css("display", "block");
+		}
 	}
 
 		function restart() {
@@ -74,8 +76,8 @@ $ (document).ready( function(){
 				}
 			}
 			else {
-			window.setTimeout(stop,4000);
-			window.setTimeout(ender,4000);
+			stop();
+			ender();
 			}
 	});
 
@@ -83,7 +85,9 @@ $ (document).ready( function(){
 		intervalId = setInterval(countDown, 1000);
 	}
   function stop() {
-    clearInterval(intervalId);
+  	if(timeCounter===0) {
+    	clearInterval(intervalId);
+  	}
   }
 
 	function countDown() {
@@ -97,19 +101,19 @@ $ (document).ready( function(){
 					$("#messageBox").css("display", "none");
     		}
     		else {
+    			questionNumber++
+					numberWrong++
     			$("#messageBox").css("display", "block");
 					$("#message").text("Time Up!");
 					$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
 						$("#rightAnswerCount").text("Number Right: " + numberRight);
 						$("#wrongAnswerCount").text("Number Wrong: " + numberWrong);
-					questionNumber++
-					numberWrong++
     		}
 			}
 		}
 		else {
-			window.setTimeout(stop,4000);
-			window.setTimeout(ender,4000);
+			stop();
+			ender();
 		}
 	}
 	function next() {
