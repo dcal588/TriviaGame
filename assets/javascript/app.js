@@ -20,14 +20,16 @@ $ (document).ready( function(){
 			$(this).prop('checked', false);
     			console.log("right:" + numberRight);
     			next();
-      			placer();
+      		placer();
+      		$("#messageBox").css("display", "block");
 		}
 		else {
 			numberWrong++
 			$(this).prop('checked', false);
     			console.log("wrong:"+numberWrong);
     			next();
-      			placer();
+      		placer();
+      		$("#messageBox").css("display", "block");
 		}
 	});
 
