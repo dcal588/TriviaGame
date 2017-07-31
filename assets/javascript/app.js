@@ -22,6 +22,7 @@ $ (document).ready( function(){
     			next();
       		placer();
       		$("#messageBox").css("display", "block");
+      		$("#message").text("Correct!");
 		}
 		else {
 			numberWrong++
@@ -30,6 +31,7 @@ $ (document).ready( function(){
     			next();
       		placer();
       		$("#messageBox").css("display", "block");
+      		$("#message").text("Wrong!");
 		}
 	});
 
@@ -42,7 +44,8 @@ $ (document).ready( function(){
 		$("#timer").html(timeCounter);
 		if(timeCounter === 0) {
 			next();
-			$("#messageBox").html("Time Up!");
+			$("#messageBox").css("display", "block");
+			$("#message").text("Time Up!");
 		}
 	}
 	
