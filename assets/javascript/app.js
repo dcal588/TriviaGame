@@ -98,12 +98,12 @@ $ (document).ready( function(){
     				}
     				else {
 					numberWrong++
-					questionNumber++
     					$("#messageBox").css("display", "block");
 					$("#message").text("Time Up!");
 					$("#correctAnswer").text("Correct Answer was:" + answers[(questionNumber/.25)+3]);
 					$("#rightAnswerCount").text("Number Right: " + numberRight);
 					$("#wrongAnswerCount").text("Number Wrong: " + numberWrong);
+					questionNumber++
     				}
 			}
 		}
